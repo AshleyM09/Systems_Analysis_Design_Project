@@ -6,6 +6,7 @@
 package models;
 
 import java.sql.*;
+import java.util.ArrayList;
 import util.DatabaseConnector;
 
 /**
@@ -37,6 +38,30 @@ public class Order {
         this.quantityBought = quantityBought;
         this.quantitySold = quantitySold;
     }
+
+    public String getOrderNumber() {
+        return orderNumber;
+    }
+
+    public String getCustomerUserName() {
+        return customerUserName;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public String getShippingAddress() {
+        return shippingAddress;
+    }
+
+    public int getQuantityBought() {
+        return quantityBought;
+    }
+
+    public int getQuantitySold() {
+        return quantitySold;
+    }
     
     
     
@@ -58,6 +83,47 @@ public class Order {
         }finally{
             DatabaseConnector.closeConnection();
         }    
+    }
+    
+    public ArrayList<Order> listOrder(){
+      ArrayList<Order> orders = new ArrayList<>();
+      connection = DatabaseConnector.getConnection();
+      try{
+        //TODO: List all orders, only for owner login
+        String sql = "select * from CHECKOUTORDER";
+        Statement stmt = connection.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+            
+        //for each record, create a new object and put it in the arraylist
+        while(rs.next()){
+            String orderNumber;
+            String customerUserName;
+            double totalPrice;
+            String shippingAddress;
+            int quantityBought;
+            int quantitySold;
+                
+        orderNumber = rs.getString("ORDERNUMBER");
+        customerUserName = rs.getString("CUSTOMERUSERNAME");
+        totalPrice = rs.getDouble("TOTALPRICE");
+        shippingAddress = rs.getString("SHIPPINGADDRESS");
+        quantityBought = rs.getInt("QUANTITYBOUGHT");
+        quantitySold = rs.getInt("QUANTITYSOLD");
+        
+                
+        Order odr = new Order(orderNumber, customerUserName, shippingAddress, quantityBought, quantitySold);
+        orders.add(odr);
+                
+            }
+                        
+      }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+      }finally{
+            DatabaseConnector.closeConnection();
+      }
+      
+      return orders;
+      
     }
     /**
         public String displayFinalOrder(){
@@ -114,16 +180,6 @@ public class Order {
     /**if there is time left:
      * 
      * 
-     * public String DisplayAllOrders(){
-     *  try{
-     *      connection = DatabaseConnector.getConnection();
-            //TODO: List all orders, only for owner login
-        }catch(SQLException ex){
-            System.out.println(ex.getMessage());
-        }finally{
-            DatabaseConnector.closeConnection();
-        }
-     * }
      * public void cancelOrder(){
      *  try{
      *      connection = DatabaseConnector.getConnection();

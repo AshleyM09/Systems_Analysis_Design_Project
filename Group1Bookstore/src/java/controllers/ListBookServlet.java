@@ -7,19 +7,20 @@ package controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import models.Order;
+import models.Book;
 
 /**
  *
- * @author Ashley Mains
+ * @author Sebastian Byczkowski
  */
-@WebServlet(name = "createOrderServlet", urlPatterns = {"/createOrderServlet"})
-public class createOrderServlet extends HttpServlet {
+@WebServlet(name = "ListBookServlet", urlPatterns = {"/ListBookServlet"})
+public class ListBookServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,10 +39,10 @@ public class createOrderServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet createOrderServlet</title>");            
+            out.println("<title>Servlet ListBookServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet createOrderServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ListBookServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -60,6 +61,13 @@ public class createOrderServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
+        Book bk = new Book();
+        request.setAttribute("bkList", bk.listBook());
+        
+        //forward request so values can be seen
+        RequestDispatcher view = request.getRequestDispatcher("/listBook.jsp");
+        view.forward(request, response);
+        
     }
 
     /**
@@ -72,20 +80,8 @@ public class createOrderServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {        
+            throws ServletException, IOException {
         //processRequest(request, response);
-        
-        //gets data from html form fields
-        String orderNumber = request.getParameter("orderNumber"); //possble removal since this might be an auto if Dirby can fill
-        String customerUserName = request.getParameter("customerUserName"); //possible remove since this will be a sql query
-        String shippingAddress = request.getParameter("shippingAddress");
-        int quantityBought = Integer.parseInt(request.getParameter("quantityBought"));
-        int quantitySold = Integer.parseInt(request.getParameter("quantitySold"));
-        
-        Order odr = new Order(orderNumber, customerUserName, shippingAddress, quantityBought, quantitySold);
-        odr.createOrder(orderNumber, customerUserName, shippingAddress, quantityBought, quantitySold);
-        
-        //TODO: add code to display the final order.
     }
 
     /**
