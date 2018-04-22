@@ -44,7 +44,7 @@ public class Book {
             
             //write query
             String sql = "insert into STOREINVENTORY values('" + bookName + "','" + isbn + "','" + author + "','" + bookCondition + "','" + description +
-                    "','" + price + "," + quantity + ")";
+                    "'," + price + "," + quantity + ")";
             
             //create statement object to send to database
             Statement stmt = connection.createStatement();

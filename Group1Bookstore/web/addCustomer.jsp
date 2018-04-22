@@ -21,7 +21,7 @@
                Enter First Name: <input type="text" name="first" value="" size="20" /><br />
                Address: <input type="text" name="address" value="" size="20" /><br />
                City: <input type="text" name="city" value="" size="20" /><br />
-               Zipcode: <input type="text" name="zipcode" value="" size="5" /><br />
+               Zip Code: <input type="text" name="zipcode" value="" size="5" /><br />
                State: <input type="text" name="state" value="" size="20" /><br />
                Phone Number: <input type="text" name="phonenumber" value="" size="10" /><br />
                Email: <input type="text" name="email" value="" size="20" /><br />

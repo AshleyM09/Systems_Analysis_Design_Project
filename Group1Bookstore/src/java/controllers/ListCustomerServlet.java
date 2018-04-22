@@ -60,7 +60,13 @@ public class ListCustomerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        Customer cust = new Customer();
+        request.setAttribute("custList", cust.listCustomers());
+        
+        //forward request so values can be seen
+        RequestDispatcher view = request.getRequestDispatcher("/listCusts.jsp");
+        view.forward(request, response);
+ 
     }
 
     /**
@@ -75,12 +81,7 @@ public class ListCustomerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
                 //processRequest(request, response);
-        Customer cust = new Customer();
-        request.setAttribute("custList", cust.listCustomers());
-        
-        //forward request so values can be seen
-        RequestDispatcher view = request.getRequestDispatcher("/listCusts.jsp");
-        view.forward(request, response);
+     
     }
 
     /**

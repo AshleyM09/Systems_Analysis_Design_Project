@@ -30,18 +30,18 @@
                 </tr>
             </thead>
             <tbody>
-                <c:forEach items="${custList}" var="cust">
+                <c:forEach items="${custList}" var="cus">
                 <tr>
-                    <td><c:out value="${cust.username}"/></td>
-                    <td><c:out value="${cust.password}"/></td>
-                    <td><c:out value="${cust.last}" /></td>
-                    <td><c:out value="${cust.first}"/></td>
-                    <td><c:out value="${cust.address}"/></td>
-                    <td><c:out value="${cust.city}" /></td>
-                    <td><c:out value="${cust.zipcode}"/></td>
-                    <td><c:out value="${cust.state}"/></td>
-                    <td><c:out value="${cust.phonenumber}"/></td>
-                    <td><c:out value="${cust.email}"/></td>
+                    <td><c:out value="${cus.username}"/></td>
+                    <td><c:out value="${cus.password}"/></td>
+                    <td><c:out value="${cus.last}" /></td>
+                    <td><c:out value="${cus.first}"/></td>
+                    <td><c:out value="${cus.address}"/></td>
+                    <td><c:out value="${cus.city}" /></td>
+                    <td><c:out value="${cus.zipcode}"/></td>
+                    <td><c:out value="${cus.state}"/></td>
+                    <td><c:out value="${cus.phonenumber}"/></td>
+                    <td><c:out value="${cus.email}"/></td>
                 </tr>
                 </c:forEach>
             </tbody>

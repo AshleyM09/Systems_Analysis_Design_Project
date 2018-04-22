@@ -74,15 +74,15 @@ public class AddBookServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-
+        
         //get data from form fields
-        String bookName = request.getParameter("BOOKNAME");
-		String isbn = request.getParameter("ISBN");
-                String author = request.getParameter("AUTHOR");
-		String bookCondition = request.getParameter("BOOKCONDITION");
-		String description = request.getParameter("DESCRIPTION");
-		double price = Double.parseDouble(request.getParameter("PRICE"));
-		int quantity = Integer.parseInt(request.getParameter("QUANTITY"));
+        String bookName = request.getParameter("bookName");
+	String isbn = request.getParameter("isbn");
+        String author = request.getParameter("author");
+        String bookCondition = request.getParameter("bookCondition");
+        String description = request.getParameter("description");
+	double price = Double.parseDouble(request.getParameter("price"));
+	int quantity = Integer.parseInt(request.getParameter("quantity"));
         
         Book bk = new Book(bookName, isbn, author, bookCondition, description, price, quantity);
         bk.addBook(bookName, isbn, author, bookCondition, description, price, quantity);

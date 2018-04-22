@@ -75,16 +75,16 @@ public class AddCustomerServlet extends HttpServlet {
                 //processRequest(request, response);
         
         //get data from form fields
-        String username = request.getParameter("USERNAME");
-        String password = request.getParameter("PASSWORD");
-        String last = request.getParameter("LASTNAME");
-        String first = request.getParameter("FIRSTNAME");
-        String address = request.getParameter("STREETADDRESS");
-        String city = request.getParameter("CITY");
-        String zipcode = request.getParameter("ZIPCODE");
-        String phonenumber = request.getParameter("PHONENUMBER");
-        String email = request.getParameter("EMAILADDRESS");
-        String state = request.getParameter("STATE");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String last = request.getParameter("last");
+        String first = request.getParameter("first");
+        String address = request.getParameter("address");
+        String city = request.getParameter("city");
+        String zipcode = request.getParameter("zipcode");
+        String phonenumber = request.getParameter("phonenumber");
+        String email = request.getParameter("email");
+        String state = request.getParameter("state");
         
         Customer cust = new Customer(username, password, last, first, address, city, zipcode, phonenumber, email, state);
         cust.addCustomer(username, password, last, first, address, city, zipcode, phonenumber, email, state);
