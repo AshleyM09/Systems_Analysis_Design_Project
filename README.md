@@ -12,6 +12,6 @@ Feel free to edit this readme so we can keep track of all changes.<br />
 
 Alpha Phase Changes:
 4/21/2018:<br />
-<Database has been loaded. Password will be sent via email.<br />
+-Database has been loaded. Password will be sent via email.<br />
 -CSS stylesheet added<br />
 -Order Model and CreateOrderServlet has been added revisions necessary<br />
