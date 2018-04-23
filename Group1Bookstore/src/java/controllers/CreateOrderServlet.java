@@ -7,11 +7,13 @@ package controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import models.Book;
 import models.Order;
 
 /**
@@ -59,7 +61,14 @@ public class CreateOrderServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+        Book bok = new Book();
+        request.setAttribute("bokList", bok.listBook());
+        
+        //forward request so values can be seen
+        RequestDispatcher view = request.getRequestDispatcher("/CreateOrder.jsp");
+        view.forward(request, response);
+        
     }
 
     /**
@@ -76,16 +85,17 @@ public class CreateOrderServlet extends HttpServlet {
         //processRequest(request, response);
         
         //TODO: fix sql gets data from html form fields 
-        String orderNumber = request.getParameter("orderNumber"); //possble removal since this might be an auto if Dirby can fill
-        String customerUserName = request.getParameter("customerUserName"); //possible remove since this will be a sql query
+        String orderNumber = request.getParameter("orderNumber");
+        String customerUserName = request.getParameter("customerUserName");
         String shippingAddress = request.getParameter("shippingAddress");
         int quantityBought = Integer.parseInt(request.getParameter("quantityBought"));
         int quantitySold = Integer.parseInt(request.getParameter("quantitySold"));
         
         Order odr = new Order(orderNumber, customerUserName, shippingAddress, quantityBought, quantitySold);
-        odr.createOrder(orderNumber, customerUserName, shippingAddress, quantityBought, quantitySold);
+        double totalPrice = odr.getTotalPrice();
+        odr.createOrder(orderNumber, customerUserName, totalPrice, shippingAddress, quantityBought, quantitySold);
         
-        //TODO: add code to display the final order.
+        response.sendRedirect("OrderFormList");//Change to a picture of final order form later
     }
 
     /**

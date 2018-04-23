@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>Add a New Customer</h1>
-        <p>Enter the fields below to add a new apartment listing.</p>
+        <p>Enter the fields below to add a new Customer.</p>
         <form action="AddCustomerServlet" method="POST">
             <p>Create Username: <input type="text" name="username" value="" size="20" /><br />
                Create Password: <input type="text" name="password" value="" size="20" /><br />

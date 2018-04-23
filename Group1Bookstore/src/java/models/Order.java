@@ -33,7 +33,7 @@ public class Order {
     public Order(String orderNumber, String customerUserName, String shippingAddress, int quantityBought, int quantitySold) {
         this.orderNumber = orderNumber;
         this.customerUserName = customerUserName;
-        this.totalPrice = 0.00;
+        this.totalPrice = 30.00;
         this.shippingAddress = shippingAddress;
         this.quantityBought = quantityBought;
         this.quantitySold = quantitySold;
@@ -65,8 +65,8 @@ public class Order {
     
     
     
-    public void createOrder(String orderNumber, String customerUserName, String shippingAddress, int quantityBought, int quantitySold){
-        totalPrice = 0.00; //calculateTotalPrice(quantityBought, quantitySold);
+    public void createOrder(String orderNumber, String customerUserName, double totalPrice, String shippingAddress, int quantityBought, int quantitySold){
+        //totalPrice = 25.00;calculateTotalPrice(quantityBought, quantitySold);
         try{
             connection = DatabaseConnector.getConnection();
 
@@ -152,29 +152,6 @@ public class Order {
         }
     }
     
-    public void sellBook(){ //I don't think I need this method
-        
-        try{
-            connection = DatabaseConnector.getConnection();
-            //TODO: code to sell one or many books
-        }catch(SQLException ex){
-            System.out.println(ex.getMessage());
-        }finally{
-            DatabaseConnector.closeConnection();
-        }
-    }
-    
-    public void buyBook(){//I don't think I need this method
-        try{
-            connection = DatabaseConnector.getConnection();
-            //TODO: code to buy one or many books
-        }catch(SQLException ex){
-            System.out.println(ex.getMessage());
-        }finally{
-            DatabaseConnector.closeConnection();
-        }
-    }
-    */
     
     
     /**if there is time left:
