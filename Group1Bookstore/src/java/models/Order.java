@@ -14,7 +14,7 @@ import util.DatabaseConnector;
  * @author Ashley Mains
  */
 public class Order {
-    private String orderNumber;
+    private int orderNumber;
     private String customerUserName;
     private double totalPrice;
     private String shippingAddress;
@@ -30,7 +30,7 @@ public class Order {
         connection = DatabaseConnector.getConnection();
     }
 
-    public Order(String orderNumber, String customerUserName, String shippingAddress, int quantityBought, int quantitySold) {
+    public Order(int orderNumber, String customerUserName, String shippingAddress, int quantityBought, int quantitySold) {
         this.orderNumber = orderNumber;
         this.customerUserName = customerUserName;
         this.totalPrice = 30.00;
@@ -39,7 +39,7 @@ public class Order {
         this.quantitySold = quantitySold;
     }
 
-    public String getOrderNumber() {
+    public int getOrderNumber() {
         return orderNumber;
     }
 
@@ -65,17 +65,17 @@ public class Order {
     
     
     
-    public void createOrder(String orderNumber, String customerUserName, double totalPrice, String shippingAddress, int quantityBought, int quantitySold){
+    public void createOrder(int orderNumber, String customerUserName, double totalPrice, String shippingAddress, int quantityBought, int quantitySold){
         //totalPrice = 25.00;calculateTotalPrice(quantityBought, quantitySold);
         try{
             connection = DatabaseConnector.getConnection();
 
             //TODO: write query to add information to database
-            String sql = "insert into CHECKOUTORDER values('" + orderNumber + "','" + customerUserName + 
+            String sql = "insert into CHECKOUTORDER values(" + orderNumber + ",'" + customerUserName + 
                     "'," + totalPrice + ",'" +  shippingAddress + "'," + quantityBought + "," + quantitySold + ")";
             //Created the statement object
             Statement stmt = connection.createStatement();
-            
+            System.out.println(sql);
             //execute query (update)
             stmt.executeUpdate(sql);
         }catch(SQLException ex){
@@ -83,6 +83,11 @@ public class Order {
         }finally{
             DatabaseConnector.closeConnection();
         }    
+    }
+    
+    public static void main(String[] args){
+        Order order = new Order();
+        order.createOrder(3, "am1234", 0, "123 Mains St", 0, 0);
     }
     
     public ArrayList<Order> listOrder(){
@@ -96,14 +101,14 @@ public class Order {
             
         //for each record, create a new object and put it in the arraylist
         while(rs.next()){
-            String orderNumber;
+            int orderNumber;
             String customerUserName;
             double totalPrice;
             String shippingAddress;
             int quantityBought;
             int quantitySold;
                 
-        orderNumber = rs.getString("ORDERNUMBER");
+        orderNumber = rs.getInt("ORDERNUMBER");
         customerUserName = rs.getString("CUSTOMERUSERNAME");
         totalPrice = rs.getDouble("TOTALPRICE");
         shippingAddress = rs.getString("SHIPPINGADDRESS");

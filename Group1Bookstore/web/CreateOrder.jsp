@@ -4,6 +4,7 @@
     Author     : Ashley Mains
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,8 +14,7 @@
     </head>
     <body>
         <h1>Current Books in Stock</h1>
-        
-                <table border="1">
+              <table border="1">
             <thead>
                 <tr>
                     <th>Book Name</th>

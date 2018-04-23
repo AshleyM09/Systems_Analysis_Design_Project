@@ -130,5 +130,13 @@ public class Book {
         
         return books;
     }
+    public static void main(String[] args){
+        Book b = new Book();
+        ArrayList<Book> books = b.listBook();
+        
+        for(Book bk : books){
+            System.out.println(bk.getBookName());
+        }
+    }
     
 }

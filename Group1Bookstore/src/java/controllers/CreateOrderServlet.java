@@ -62,8 +62,8 @@ public class CreateOrderServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        Book bok = new Book();
-        request.setAttribute("bokList", bok.listBook());
+        Book bk = new Book();
+        request.setAttribute("bokList", bk.listBook());
         
         //forward request so values can be seen
         RequestDispatcher view = request.getRequestDispatcher("/CreateOrder.jsp");
@@ -85,7 +85,7 @@ public class CreateOrderServlet extends HttpServlet {
         //processRequest(request, response);
         
         //TODO: fix sql gets data from html form fields 
-        String orderNumber = request.getParameter("orderNumber");
+        int orderNumber = Integer.parseInt(request.getParameter("orderNumber"));
         String customerUserName = request.getParameter("customerUserName");
         String shippingAddress = request.getParameter("shippingAddress");
         int quantityBought = Integer.parseInt(request.getParameter("quantityBought"));
