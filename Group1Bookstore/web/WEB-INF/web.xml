@@ -8,6 +8,10 @@
         <servlet-name>addInventoryServlet</servlet-name>
         <servlet-class>controllers.addInventoryServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>addVendor</servlet-name>
+        <servlet-class>controllers.addVendor</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddBookServlet</servlet-name>
         <url-pattern>/AddBookServlet</url-pattern>
@@ -63,6 +67,18 @@
     <servlet-mapping>
         <servlet-name>addInventoryServlet</servlet-name>
         <url-pattern>/addInventoryServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addVendor</servlet-name>
+        <url-pattern>/addVendor</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ListManifest</servlet-name>
+        <servlet-class>controllers.ListManifest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListManifest</servlet-name>
+        <url-pattern>/ListManifest</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

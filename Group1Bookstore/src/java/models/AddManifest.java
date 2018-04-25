@@ -17,10 +17,10 @@ import util.DatabaseConnector;
  * @author Xavier Hawkins
  */
 public class AddManifest {
-        private String Bookname;
-    private String OrderId;
-    private int OrderQty;
-    private double WholesalePrice;
+    private String bookName;
+    private String orderId;
+    private int orderQty;
+    private double wholesalePrice;
   
     
     private Connection connection;
@@ -28,21 +28,21 @@ public class AddManifest {
     public AddManifest(){
         connection = DatabaseConnector.getConnection();
     }
-    public AddManifest(String Bookname, String OrderId, int OrderQty, double WholesalePrice){
+    public AddManifest(String bookName, String orderId, int orderQty, double wholesalePrice){
         
-        this.Bookname = Bookname;
-        this.OrderId = OrderId;
-        this.OrderQty = OrderQty;
-        this.WholesalePrice = WholesalePrice;
+        this.bookName = bookName;
+        this.orderId = orderId;
+        this.orderQty = orderQty;
+        this.wholesalePrice = wholesalePrice;
     }
 
        
-    public void addInventory(String Bookname, String OrderId, int OrderQty, double WholesalePrice ){
+    public void addInventory(String bookName, String orderId, int orderQty, double wholesalePrice ){
         try{
             connection = DatabaseConnector.getConnection();
             
             //write query
-            String sql = "insert into VENDORMANIFEST values('" + Bookname + "','" + OrderId + "'," + OrderQty + "," + WholesalePrice + ")";
+            String sql = "INSERT into VANDORMANIFEST values('" + bookName + "','" + orderId + "'," + orderQty + "," + wholesalePrice + ")";
             
             //create statement object to send to database
             Statement stmt = connection.createStatement();
@@ -56,24 +56,21 @@ public class AddManifest {
         }
     }
 
-   
-    public String getBookname() {
-        return Bookname;
+    public String getBookName() {
+        return bookName;
     }
 
-    public String OrderId() {
-        return OrderId;
+    public String getOrderId() {
+        return orderId;
     }
 
-    public int OrderQty() {
-        return OrderQty;
+    public int getOrderQty() {
+        return orderQty;
     }
 
     public double getWholesalePrice() {
-        return WholesalePrice;
+        return wholesalePrice;
     }
-    
-    
     
     public ArrayList<AddManifest> listManifest(){
         //array list to store current vendor information
@@ -82,24 +79,24 @@ public class AddManifest {
         connection = DatabaseConnector.getConnection();
         try{
             //execute a basic query to get the books
-            String sql = "select * from STOREINVENTORY";
+            String sql = "select * from VANDORMANIFEST";
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             
             //for each record, create a new object and put it in the arraylist
             while(rs.next()){
-                 String bookname;
+                 String bookName;
                  String orderId;
                  int orderQty;
                  double wholesalePrice;
                 
-                bookname = rs.getString("BOOKNAME");
+                bookName = rs.getString("BOOKNAME");
                 orderId = rs.getString("ORDERID");
                 orderQty = rs.getInt("ORDERQTY");
                 wholesalePrice = rs.getDouble("WHOLESALEPRICE");
                 
                 
-                AddManifest manifst = new AddManifest(Bookname,OrderId,OrderQty,WholesalePrice);
+                AddManifest manifst = new AddManifest(bookName,orderId,orderQty,wholesalePrice);
                 manifest.add(manifst);
                 
             }
@@ -111,6 +108,19 @@ public class AddManifest {
         }
         
         return manifest;
+    }
+    
+    public String toString(){
+        return "Book name: " + bookName + " OrderID: " + orderId+ " QTY: " + orderQty + " Price: " + wholesalePrice;
+    }
+    
+    
+    public static void main(String[] args){
+        AddManifest a = new AddManifest();
+        ArrayList<AddManifest> test = a.listManifest();
+        for (AddManifest t : test){
+            System.out.println(t);
+        }
     }
     
 }
