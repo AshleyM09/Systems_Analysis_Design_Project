@@ -16,7 +16,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Book Inventory</title>
+    <title>Admin Inventory</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -38,20 +38,20 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="addCustomer.jsp">Create Account
+              <a class="nav-link" href="ListCustomerServlet">Customer Accounts
                 <span class="sr-only">(current)</span>
               </a>
                 <li class="nav-item">
-              <a class="nav-link" href="CreateOrderServlet">Buy/Sell Book</a>
+              <a class="nav-link" href="addBook.jsp">Add Book</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="ListBookServlet">View Book</a>
+              <a class="nav-link" href="ListBookServlet1">View Books</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href=".jsp">Vendor</a>
+              <a class="nav-link" href="#">Vendor Accounts</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="login.jsp">Login</a>
+              <a class="nav-link" href="index.html">Logout</a>
             </li>
           </ul>
         </div>
@@ -93,10 +93,10 @@
     <section class="py-5">
       <div class="container">
          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Inventory</title>
+        <title>List of Current Books</title>
     </head>
     <body>
-    <h2>Inventory</h2>&nbsp&nbsp&nbsp
+    <h2>Available Books</h2>&nbsp&nbsp&nbsp
         <table border="1">
             <thead>
                 <tr>

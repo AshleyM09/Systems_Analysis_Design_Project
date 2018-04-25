@@ -1,11 +1,9 @@
 <%-- 
-    Document   : listBook
-    Created on : Apr 22, 2018, 3:29:12 PM
+    Document   : ownerpage
+    Created on : Apr 23, 2018, 10:39:03 PM
     Author     : Sebastian Byczkowski
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +14,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Book Inventory</title>
+    <title>Online Book Store</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -76,8 +74,6 @@
           <div class="carousel-item" style="background-image: url('pic3.jpg')">
           </div>
         </div>
-          </div>
-        </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
@@ -92,38 +88,14 @@
     <!-- Page Content -->
     <section class="py-5">
       <div class="container">
-         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Inventory</title>
-    </head>
-    <body>
-    <h2>Inventory</h2>&nbsp&nbsp&nbsp
-        <table border="1">
-            <thead>
-                <tr>
-            <th>&nbsp&nbsp&nbspBook Name&nbsp&nbsp&nbsp</th>
-            <th>&nbsp&nbsp&nbspISBN&nbsp&nbsp&nbsp&nbsp</th>
-            <th>&nbsp&nbsp&nbsp&nbspAuthor&nbsp&nbsp&nbsp&nbsp&nbsp</th>
-                    <th>&nbsp&nbsp&nbsp&nbspBook Condition&nbsp&nbsp&nbsp&nbsp&nbsp</th>
-                    <th>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDescription&nbsp&nbsp&nbsp
-                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
-                    <th>&nbsp&nbsp&nbsp&nbspPrice&nbsp&nbsp&nbsp&nbsp</th>
-                    <th>&nbsp&nbsp&nbsp&nbspQuantity&nbsp&nbsp&nbsp&nbsp</th>
-                </tr>
-            </thead>
-            <tbody>
-                <c:forEach items="${bkList}" var="bk">
-                <tr>
-                    <td><c:out value="${bk.bookName}"/></td>
-                    <td><c:out value="${bk.isbn}"/></td>
-                    <td><c:out value="${bk.author}"/></td>
-                    <td><c:out value="${bk.bookCondition}" /></td>
-                    <td><c:out value="${bk.description}"/></td>
-                    <td><c:out value="${bk.price}"/></td>
-                    <td><c:out value="${bk.quantity}" /></td>
-                </tr>
-                </c:forEach>
-            </tbody>
-        </table>
+        <h1>Login</h1>
+        <p> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspUser: <input type="text" name="user" value="" size="15" /></p>
+        <p> Password: <input type="password" name="password" value="" size="15" /></p>
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        &nbsp&nbsp<a href="ownerpage.jsp">
+        <input type="button" value="Login" />
+        </a>
+   
       </div>
     </section>
 

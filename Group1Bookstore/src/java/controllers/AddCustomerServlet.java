@@ -88,7 +88,7 @@ public class AddCustomerServlet extends HttpServlet {
         
         Customer cust = new Customer(username, password, last, first, address, city, zipcode, phonenumber, email, state);
         cust.addCustomer(username, password, last, first, address, city, zipcode, phonenumber, email, state);
-        response.sendRedirect("ListCustomerServlet");
+        response.sendRedirect("accountcreated.jsp");
     }
 
     /**
