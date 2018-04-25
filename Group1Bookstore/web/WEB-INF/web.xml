@@ -12,6 +12,14 @@
         <servlet-name>AddBookServlet</servlet-name>
         <url-pattern>/AddBookServlet</url-pattern>
     </servlet-mapping>
+     <servlet>
+        <servlet-name>ListBookServlet1</servlet-name>
+        <servlet-class>controllers.ListBookServlet1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListBookServlet1</servlet-name>
+        <url-pattern>/ListBookServlet1</url-pattern>
+    </servlet-mapping>
         <servlet>
         <servlet-name>AddCustomerServlet</servlet-name>
         <servlet-class>controllers.AddCustomerServlet</servlet-class>
