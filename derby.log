@@ -12,3 +12,8 @@ os.arch=amd64
 os.version=10.0
 derby.system.home=C:\Users\ashle\Documents\GitHub\Systems_Analysis_Design_Project
 Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Wed Apr 25 14:54:28 EDT 2018: Shutting down Derby engine
+----------------------------------------------------------------
+Wed Apr 25 14:54:28 EDT 2018:
+Shutting down instance a816c00e-0162-fdef-f1e0-00004585f771 on database directory C:\Users\ashle\Documents\GitHub\Systems_Analysis_Design_Project\Bookstore with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
