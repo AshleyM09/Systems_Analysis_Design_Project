@@ -46,7 +46,7 @@
               <a class="nav-link" href="ListBookServlet">View Book</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href=".jsp">Vendor</a>
+              <a class="nav-link" href="addManifest.jsp">Vendor</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="login.jsp">Login</a>
@@ -57,21 +57,27 @@
     </nav>
 
     <header>
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
           <!-- Slide One - Set the background image for this slide in the line below -->
-          <div class="carousel-item active" style="background-image: url(pic1.jpg)">
+          <div class="carousel-item active" style="background-image: url(pic4.jpg)">
           </div>
           <!-- Slide Two - Set the background image for this slide in the line below -->
-          <div class="carousel-item" style="background-image: url('pic2.jpg')">
+          <div class="carousel-item" style="background-image: url('pic1.jpg')">
           </div>
           <!-- Slide Three - Set the background image for this slide in the line below -->
           <div class="carousel-item" style="background-image: url('pic3.jpg')">
+          </div>
+          <div class="carousel-item" style="background-image: url('pic2.jpg')">
+          </div>
+          <div class="carousel-item" style="background-image: url('pic5.jpg')">
           </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

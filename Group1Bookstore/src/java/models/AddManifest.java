@@ -114,13 +114,13 @@ public class AddManifest {
         return "Book name: " + bookName + " OrderID: " + orderId+ " QTY: " + orderQty + " Price: " + wholesalePrice;
     }
     
-    
+/**    
     public static void main(String[] args){
         AddManifest a = new AddManifest();
         ArrayList<AddManifest> test = a.listManifest();
         for (AddManifest t : test){
             System.out.println(t);
         }
-    }
+    }*/
     
 }

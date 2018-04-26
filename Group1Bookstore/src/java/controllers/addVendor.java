@@ -69,13 +69,14 @@ public class addVendor extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //get data from form fields
-        String bookname = request.getParameter("Bookname");
-        String orderId = request.getParameter("OrderId");
-        int orderQty = Integer.parseInt(request.getParameter("OrderQty"));
-	double wholesalePrice = Double.parseDouble(request.getParameter("WholesalePrice"));
-        AddManifest bk = new AddManifest(bookname,orderId,orderQty,wholesalePrice);
-        bk.addInventory(bookname,orderId,orderQty,wholesalePrice);
-        response.sendRedirect("ListVendorServlet");
+        String bookName = request.getParameter("bookName");
+        String orderId = request.getParameter("orderId");
+        int orderQty = Integer.parseInt(request.getParameter("orderQty"));
+        double wholesalePrice = Double.parseDouble(request.getParameter("wholesalePrice"));
+        
+        AddManifest vn = new AddManifest(bookName, orderId, orderQty, wholesalePrice);
+        vn.addInventory(bookName, orderId, orderQty, wholesalePrice);
+        response.sendRedirect("manifestcreated.jsp");
     }
 
     /**

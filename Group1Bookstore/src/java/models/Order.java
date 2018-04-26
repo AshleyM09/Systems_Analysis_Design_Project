@@ -85,10 +85,10 @@ public class Order {
         }    
     }
     
-    public static void main(String[] args){
+   /** public static void main(String[] args){
         Order order = new Order();
         order.createOrder(3, "am1234", 0, "123 Mains St", 0, 0);
-    }
+    }*/
     
     public ArrayList<Order> listOrder(){
       ArrayList<Order> orders = new ArrayList<>();

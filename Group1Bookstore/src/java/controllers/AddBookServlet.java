@@ -86,7 +86,7 @@ public class AddBookServlet extends HttpServlet {
         
         Book bk = new Book(bookName, isbn, author, bookCondition, description, price, quantity);
         bk.addBook(bookName, isbn, author, bookCondition, description, price, quantity);
-        response.sendRedirect("ListBookServlet");
+        response.sendRedirect("ListBookServlet1");
     }
 
     /**

@@ -48,7 +48,7 @@
               <a class="nav-link" href="ListBookServlet">View Book</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href=".jsp">Vendor</a>
+              <a class="nav-link" href="addManifest.jsp">Vendor</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="login.jsp">Login</a>

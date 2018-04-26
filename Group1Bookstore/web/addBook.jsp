@@ -47,7 +47,10 @@
               <a class="nav-link" href="ListBookServlet1">View Books</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Vendor Accounts</a>
+              <a class="nav-link" href="OrderFormList">Orders</a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link" href="ListManifest">Vendor Manifest</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="index.html">Logout</a>
@@ -63,18 +66,22 @@
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
           <!-- Slide One - Set the background image for this slide in the line below -->
-          <div class="carousel-item active" style="background-image: url(pic1.jpg)">
+          <div class="carousel-item active" style="background-image: url(pic4.jpg)">
           </div>
           <!-- Slide Two - Set the background image for this slide in the line below -->
-          <div class="carousel-item" style="background-image: url('pic2.jpg')">
+          <div class="carousel-item" style="background-image: url('pic1.jpg')">
           </div>
           <!-- Slide Three - Set the background image for this slide in the line below -->
           <div class="carousel-item" style="background-image: url('pic3.jpg')">
           </div>
-        </div>
+          <div class="carousel-item" style="background-image: url('pic2.jpg')">
+          </div>
+          <div class="carousel-item" style="background-image: url('pic5.jpg')">
           </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -100,9 +107,13 @@
                 <br>
                 Author: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="author" value="" size="20" /><br />
                 <br>
-                Condition: &nbsp&nbsp&nbsp<input type="text" name="bookCondition" value="" size="10" /><br />
+                Condition: <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<select name="bookCondition" size="3"><br />
+                    <option>New</option>
+                    <option>LNew</option>
+                    <option>Used</option>
+                </select>
                 <br>
-                Description: <br><textarea name="description" rows="3" cols="25">
+                Description: <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<textarea name="description" rows="3" cols="25">
                 </textarea>
                 <br>
                 <br>
@@ -110,8 +121,8 @@
                 <br>
                 Qty: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="quantity" value="" size="2" /><br />
                 <br>
-                <input type="submit" value="Add Book" name="submit" />
-           
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="submit" value="Add Book" name="submit" />
+
             </p>
         </form>
       </div>

@@ -95,7 +95,7 @@ public class CreateOrderServlet extends HttpServlet {
         double totalPrice = odr.getTotalPrice();
         odr.createOrder(orderNumber, customerUserName, totalPrice, shippingAddress, quantityBought, quantitySold);
         
-        response.sendRedirect("OrderFormList");//Change to a picture of final order form later
+        response.sendRedirect("orderCreated.jsp");//Change to a picture of final order form later
     }
 
     /**
