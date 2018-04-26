@@ -12,7 +12,7 @@ Feel free to edit this readme so we can keep track of all changes.<br />
 
 Download note: Upon Download, JavaDB properties must be directed to the folder where the DOWNLOADED database is sitting. Default is a Derby Folder, and you can choose to copy the 'Bookstore' folder into that folder, or change the directory location in Netbeans under Services > JavaDB > *rightclick*> Properties > database location. The same goes for the Web_INF folder, which is located in the with the projects under Web Pages. Ensure the Web_INF folder is directing to the web.xml file downloaded, NOT the default web.xml file.
 
-*Final Project functionality*<br /><br />
+*Final Project Functionality*<br /><br />
 <u>Accounts:</u><br />
 Create Customer Account<br />
 List Customer Accounts<br /><br />
