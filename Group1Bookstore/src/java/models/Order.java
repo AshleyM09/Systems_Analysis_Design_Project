@@ -33,7 +33,6 @@ public class Order {
     public Order(int orderNumber, String customerUserName, String shippingAddress, int quantityBought, int quantitySold) {
         this.orderNumber = orderNumber;
         this.customerUserName = customerUserName;
-        this.totalPrice = 30.00;
         this.shippingAddress = shippingAddress;
         this.quantityBought = quantityBought;
         this.quantitySold = quantitySold;
@@ -63,10 +62,16 @@ public class Order {
         return quantitySold;
     }
     
+    public void setTotalPrice(double totalPrice){
+        this.totalPrice = totalPrice;
+    }
     
     
+    /**
+     * createOrder method takes the values from the CreateOrderServlet and adds them to 
+     * the CHECKOUTORDER table in the database.
+     */
     public void createOrder(int orderNumber, String customerUserName, double totalPrice, String shippingAddress, int quantityBought, int quantitySold){
-        //totalPrice = 25.00;calculateTotalPrice(quantityBought, quantitySold);
         try{
             connection = DatabaseConnector.getConnection();
 
@@ -84,12 +89,50 @@ public class Order {
             DatabaseConnector.closeConnection();
         }    
     }
+    /**
+     * calculateTotalPrice method takes the ISBN number, searches for it in the 
+     * STOREINVENTORY database, retrieves the price of the book, and multiplies it 
+     * by the quantity passed. Incomplete: if a customer is selling a book, then the 
+     * price would be retrieved from a table which has a reduced price to perform the proper
+     * calculation.
+     * NOTE: In a real world situation, the buy price offered to a customer is 
+     * less than the sell price, so you would not pull the price from the 
+     * STOREINVENTORY TABLE, but a table that has not been created in this project.
+     * NOTE2/TODO: When a book is being bought or sold, the quantity in inventory table should 
+     * increase or decrease as well.
+     */
+        public double calculateTotalPrice(String isbn, int quantityBought, int quantitySold){
+        try{
+            connection = DatabaseConnector.getConnection();
+            //Calculates total price using book price from the store inventory table
+            if (quantityBought > 0 && quantitySold == 0){
+                String price = "select PRICE from STOREINVENTORY where ISBN = ?"; 
+
+                PreparedStatement stmt = connection.prepareStatement(price);
+                stmt.setString(1, isbn);
+                ResultSet rs = stmt.executeQuery();
+                double bkprice = 0.00;
+                if(rs.next()){
+                bkprice = rs.getDouble("PRICE");
+                }
+                bkprice *= quantityBought;
+                setTotalPrice(bkprice); 
+            }else{
+                setTotalPrice(30.0);
+            //NOTE: Normally would calculate the price of a book being sold by a customer.
+            }
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }finally{
+            DatabaseConnector.closeConnection();
+        }
+        return totalPrice;
+    }
     
-   /** public static void main(String[] args){
-        Order order = new Order();
-        order.createOrder(3, "am1234", 0, "123 Mains St", 0, 0);
-    }*/
-    
+    /**
+     * listOrder method pulls the full list of orders from the CHECKOUTORDER 
+     * table for the owner to review.
+     */
     public ArrayList<Order> listOrder(){
       ArrayList<Order> orders = new ArrayList<>();
       connection = DatabaseConnector.getConnection();
@@ -117,8 +160,8 @@ public class Order {
         
                 
         Order odr = new Order(orderNumber, customerUserName, shippingAddress, quantityBought, quantitySold);
-        orders.add(odr);
-                
+        odr.setTotalPrice(totalPrice);
+        orders.add(odr);                
             }
                         
       }catch(SQLException ex){
@@ -131,36 +174,32 @@ public class Order {
       
     }
     /**
-        public String displayFinalOrder(){
+     //File Testing code
+     public static void main(String[] args){
+        Order order = new Order();
+        order.calculateTotalPrice("1450517161", 1, 0);
+        System.out.println(order.getTotalPrice());
+    }
+    */
+    /**
+     * ADDITIONAL METHODS: 
+     * orderConfirmation method would pull the information that the customer 
+     * just entered and allow them to edit before officially placing the order.
+     * 
+        public String orderConfirmation(){
         try{
             connection = DatabaseConnector.getConnection();
 
-            //TODO display the Final Order.
+            //TODO display the Final Order after purchase.
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
         }finally{
             DatabaseConnector.closeConnection();
         }
-        
-    }
-    
-    public double calculateTotalPrice(int quantityBought, int quantitySold){
-        try{
-            connection = DatabaseConnector.getConnection();
-            ///SELECT QUERY TO PULL BOOK PRICE FROM STOREINVENTORY
-            //TODO Calculate total price using book price from the store inventory table
-            //Remember: cancel calculation if int value passed = 0
-        }catch(SQLException ex){
-            System.out.println(ex.getMessage());
-        }finally{
-            DatabaseConnector.closeConnection();
-        }
-    }
-    
-    
-    
-    /**if there is time left:
+    }  
      * 
+     *cancelOrder method would allow a customer to change their mind in placing 
+     * an order.
      * 
      * public void cancelOrder(){
      *  try{
@@ -173,6 +212,7 @@ public class Order {
         }
      * }
      * 
+     * createInvoice method would generate an invoice if the customer is considered credit worthy.
      * public void createInvoice(){
      *  try{
      *      connection = DatabaseConnector.getConnection();

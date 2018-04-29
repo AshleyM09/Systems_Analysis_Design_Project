@@ -107,7 +107,7 @@
                 <br>
                 Author: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" name="author" value="" size="20" /><br />
                 <br>
-                Condition: <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<select name="bookCondition" size="3"><br />
+                Condition: <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<select name="bookCondition" size="3">
                     <option>New</option>
                     <option>LNew</option>
                     <option>Used</option>

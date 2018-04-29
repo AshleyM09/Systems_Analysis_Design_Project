@@ -130,13 +130,13 @@ public class Book {
         
         return books;
     }
+    public String toString(){
+        return "Book added: " + bookName + " " + isbn + " " + author + " " + bookCondition + " " + description + " " + price + " " + quantity;
+    }
+    /**
     public static void main(String[] args){
         Book b = new Book();
-        ArrayList<Book> books = b.listBook();
-        
-        for(Book bk : books){
-            System.out.println(bk.getBookName());
-        }
+        b.addBook("A Tale of Two Cities","9781101036181", "Charles Dickens", "Lnew", "A Classic Tale of the French Revolutions", 4.99, 2);
     }
-    
+    */
 }

@@ -84,6 +84,7 @@ public class AddBookServlet extends HttpServlet {
 	double price = Double.parseDouble(request.getParameter("price"));
 	int quantity = Integer.parseInt(request.getParameter("quantity"));
         
+
         Book bk = new Book(bookName, isbn, author, bookCondition, description, price, quantity);
         bk.addBook(bookName, isbn, author, bookCondition, description, price, quantity);
         response.sendRedirect("ListBookServlet1");

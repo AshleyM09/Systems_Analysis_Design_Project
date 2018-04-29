@@ -90,9 +90,10 @@ public class CreateOrderServlet extends HttpServlet {
         String shippingAddress = request.getParameter("shippingAddress");
         int quantityBought = Integer.parseInt(request.getParameter("quantityBought"));
         int quantitySold = Integer.parseInt(request.getParameter("quantitySold"));
+        String isbn = request.getParameter("isbn");
         
         Order odr = new Order(orderNumber, customerUserName, shippingAddress, quantityBought, quantitySold);
-        double totalPrice = odr.getTotalPrice();
+        double totalPrice = odr.calculateTotalPrice(isbn, quantityBought, quantitySold);
         odr.createOrder(orderNumber, customerUserName, totalPrice, shippingAddress, quantityBought, quantitySold);
         
         response.sendRedirect("orderCreated.jsp");//Change to a picture of final order form later
